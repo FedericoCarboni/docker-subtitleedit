@@ -1,10 +1,12 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
-mkdir -p /config/.config/Subtitle\ Edit
-mkdir -p /root/.config
+if [[ ! -e /root/.config/Subtitle\ Edit ]]; then
+    mkdir -p /config/.config/Subtitle\ Edit
+    mkdir -p /root/.config
 
-ln -s /config/.config/Subtitle\ Edit /root/.config/Subtitle\ Edit
+    ln -s /config/.config/Subtitle\ Edit /root/.config/Subtitle\ Edit
+fi
 
 lsiown -R abc:abc \
     /root/.config/Subtitle\ Edit \
